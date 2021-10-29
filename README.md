@@ -13,10 +13,10 @@ Developing a model to predict threatened status, we can identify factors that mo
 We will take a particular interest in minimizing false negatives, i.e., where our model has not predicted a bird is threatened, when in reality it is. Mis-identifying a bird as "not threatened" is the worst case scenario for the WOS. False positives on the other hand are not particularly impactful. The "worst" case here is a slightly misguided conservation approach, which will have minimal harm. E.g., conservation efforts like protecting habitat and reducing pollution are still impactful even if theyy slightly miss the mark.
 
 ## Navigating the repository
-* The final notebook is <notebook name> in the main folder. It includes the main modeling iterations as well as our final model.
-* Dataset used is bird_dataset.csv in the "Data" folder
+* The final notebook is bird_conservation_notebook.ipynb in the main folder. It includes the main modeling iterations as well as our final model.
+* Datasets used are bird_dataset.csv and df.csv (for later modeling iterations) in the "Data" folder
 * Some model iterations such as grid searches were not included in the final notebook. Notebooks referenced in the final analysis can be found in the "Notebooks" folder under the relevant name
-* util.py contains functions for evaluating classification model results as well as measuring multicollinearity in the dataset. Refer to the docstring for full details.
+* util.py in the main folder contains functions for evaluating classification model results as well as measuring multicollinearity in the dataset. Refer to the docstring for full details.
 
 ## Data
 Data was combined from two sources and combined by matching on Scientific or English name
@@ -54,7 +54,7 @@ Given that the business problem calls for inferential approach, several classifi
   
 ## Final Model and Recommendations
 
-Using Catboost and tuning certain paremeters, the final model produces an accuracy of TBD and recall of TBD. On the test data, it only missed 24 species that are actually threatened. The variables that resulted in the most meaningful decision tree splits were Number of Threats, Agriculture and Invasive Species threats, Region (specifically Europe, Central America, and Asia), and Endemic Breeding. Our business recommendations are built on these feature importances:
+Using Catboost and tuning certain paremeters, the final model produces an accuracy of 90.16% and recall of 92.26%. On the test data, it only missed 24 species that are actually threatened. The variables that resulted in the most meaningful decision tree splits were Number of Threats, Agriculture and Invasive Species threats, Region (specifically Europe, Central America, and Asia), and Endemic Breeding. Our business recommendations are built on these feature importances:
 * Preserve habitat at risk of agriculture or resource use expansion and focus on eradicating invasive species
 * Focus conservation efforts on Oceania and High Seas, which have the highest incidence of threatened species. Europe, Central America, and Asia were strong predictors of Not Threatened status, suggesting resources can be shifted away from these regions.
 * Endemic breeders (species that are only located in a single country when breeding) are particularly at risk for being threatened and could benefit from additional conservation efforts.
@@ -64,3 +64,7 @@ Using Catboost and tuning certain paremeters, the final model produces an accura
 While we were able to improve on baseline accuracy and not miss many endangered species, it still produced a number of false positives. Regardless, the model highlighted important features that can be used to direct conservation efforts. Next steps could include:
 * A temporal analysis to model changes in threatened status over time
 * Incorporate additional data such as observations through time to help improve model accuracy.
+  
+## Presentation
+  
+https://docs.google.com/presentation/d/1-RFhnR5_VmIVRvy919HCM-cwzgbX7Vhs5TUlUXY8B8A/edit?usp=sharing
