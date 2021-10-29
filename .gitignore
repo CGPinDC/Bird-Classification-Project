@@ -1,7 +1,7 @@
 .DS_Store
 #catboost folder
 /notebooks/crystal/catboost_info
-
+/catboost_info
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
