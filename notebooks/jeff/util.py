@@ -40,6 +40,7 @@ def evaluate_model(model, X, y, plot_cf):
     if plot_cf == True:
         plot_confusion_matrix(model, X, y)
 
+
     return acc_score, precision, recall, f1
 
 
